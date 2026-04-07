@@ -6,7 +6,7 @@ export function ToDO({task}){
         setComplete(!complete)
     }
     return (
-    <div className="w-100  border rounded-2xl flex p-2 justify-between m-3">
+    <div className="w-full max-w-md border rounded-2xl flex p-4 justify-between my-3">
         <div className='flex flex-1'>
             {
                 complete ? <CircleCheck className="text-green-500 size-7  shrink-0" onClick={handleComplete}/> : <Circle className="text-green-500 size-7 shrink-0" onClick={handleComplete} />
@@ -17,7 +17,7 @@ export function ToDO({task}){
       
         
         </div>
-        <Trash2 className="text-red-700 size-7 stroke-[2.5px]" />
+        <Trash2 className="text-red-700 size-7 stroke-[2.5px] shrink-0" />
     </div>
     )
 }
