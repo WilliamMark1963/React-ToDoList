@@ -1,26 +1,61 @@
+import { useState } from "react";
 import { ToDoList } from "./Components/ToDoList";
 import { CirclePlus } from "lucide-react";
 
 function App(){
 
+  let defaultTasks = [
+    {"id": 1,
+      "task": "Clean Youre Brush🪥",
+        "isCompleted": true
+    },
+    {"id": 2,
+      "task": "Excersie for 10 Mins 💪",
+        "isCompleted": false
+    },
+    {"id": 3,
+      "task": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, obcaecati quis sed ea ratione dolorum nulla expedita nisi minima quisquam!",
+        "isCompleted": true
+    }
+  ]
+const [tasks,setTasks] = useState(defaultTasks);
+const [msg, setMsg] = useState("");
 
+function addTask(){
+let newTask = {
+  id: tasks.length>0? tasks[tasks.length-1].id + 1 : 1,
+  task: msg,
+  isComplete: false
+}
+setTasks([...tasks, newTask])
+console.log(tasks)
+}
+function deleteTask(id){
+  const updatedTasks =  tasks.filter((item)=>item.id!=id)
+  setTasks(updatedTasks)
+
+}
 
 
   return(
     <div className="flex flex-col min-h-screen items-center justify-center bg-gray-100 p-4">
       <h2 className="text-3xl mb-5">Appka Do List</h2>
       <div className=" flex">
-      <input type="text" className="mr-4 border-b-2 outline-0 w-full max-w-[300px] sm:w-80" />
-      <CirclePlus className="size-7 hover:text-olive-600"/>
+      <input type="text" className="mr-4 border-b-2 outline-0 w-full max-w-[300px] sm:w-80" onChange={(e)=>{
+            setMsg(e.target.value)
+      }}  />
+      <CirclePlus className="size-7 hover:text-olive-600" onClick={addTask}/>
       </div>
 
 
       <div>
-        <ToDoList/>
+        <ToDoList taskList={tasks} onDelete={deleteTask}/>
       </div>
 
     </div>
   )
 }
+
+// Delete is pending
 
 export default App;

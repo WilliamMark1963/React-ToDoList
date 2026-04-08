@@ -1,14 +1,17 @@
-import { ToDO } from "./ToDo";
+import { useState } from "react";
+import { ToDo } from "./ToDo";
 
-export function ToDoList(){
+export function ToDoList({taskList, onDelete}){
 
 return(
     <>
-        <ToDO task="Clean Youre hands"/>
-        <ToDO task="Clean Youre hands"/>
-        <ToDO task="Clean Youre hands"/>
-        <ToDO task="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, obcaecati quis sed ea ratione dolorum nulla expedita nisi minima quisquam!"/>
+    {
+    taskList.map((el)=>{
+        return <ToDo key={el.id}  task={el.task} isComplete={el.isCompleted} onDelete={()=>onDelete(el.id)}/>
+    })
+}
+    
     </>
-)
 
+)
 }

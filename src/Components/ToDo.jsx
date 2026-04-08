@@ -1,23 +1,23 @@
 import { Trash2, Circle, CircleCheck} from 'lucide-react';
 import { useState } from 'react';
-export function ToDO({task}){
+export function ToDo({task, onDelete}){
     const [complete, setComplete] = useState(false)
     function handleComplete(){
         setComplete(!complete)
     }
     return (
-    <div className="w-full max-w-md border rounded-2xl flex p-4 justify-between my-3">
+    <div className=" w-[300px] md:w-[400px] border rounded-2xl flex p-4 justify-between my-3">
         <div className='flex flex-1'>
             {
                 complete ? <CircleCheck className="text-green-500 size-7  shrink-0" onClick={handleComplete}/> : <Circle className="text-green-500 size-7 shrink-0" onClick={handleComplete} />
             }
              {
-                complete ?  <p className='text-left ml-2 text-lg line-through' >{task}</p> : <p className='text-left ml-2 text-lg' >{task}</p>
+                complete ?  <p className='text-left ml-2 text-lg line-through  break-word whitespace-normal ' >{task}</p> : <p className='text-left ml-2 text-lg break-word whitespace-normal ' >{task}</p>
             }
       
         
         </div>
-        <Trash2 className="text-red-700 size-7 stroke-[2.5px] shrink-0" />
+        <Trash2 className="text-red-700 size-7 stroke-[2.5px] shrink-0" onClick={onDelete}/>
     </div>
     )
 }
