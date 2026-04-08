@@ -1,18 +1,124 @@
-# React + Vite
+# 📝 React To-Do App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and interactive To-Do application built using **React** and **Tailwind CSS**.
+This app allows users to manage daily tasks with features like adding, editing, completing, and deleting tasks.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+##  Features
 
-## React Compiler
+* ➕ Add new tasks
+* ✔️ Mark tasks as completed
+* ✏️ Edit tasks (double click or pencil icon)
+* 🗑️ Delete tasks
+* 🎨 Clean and responsive UI
+* 🔄 Real-time updates using React state
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 Concepts Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React Functional Components
+* `useState` Hook
+* Props & Component Communication
+* Lifting State Up
+* Conditional Rendering
+* Array Methods (`map`, `filter`)
+* Immutability in React
 
-## Lucide-React
+---
+
+## 📂 Project Structure
+
+```
+src/
+│
+├── App.jsx                # Main logic and state management
+├── Components/
+│   ├── Header.jsx        # App header
+│   ├── ToDoList.jsx      # Renders list of tasks
+│   └── ToDo.jsx          # Individual task component
+```
+
+---
+
+## ⚙️ How It Works
+
+### 1. Add Task
+
+* User types in input field
+* Click ➕ icon
+* New task is added to state
+
+### 2. Toggle Completion
+
+* Click on circle icon
+* Task status toggles between completed and not completed
+
+### 3. Edit Task
+
+* Double click task OR click ✏️
+* Input field appears
+* Press Enter or click outside to save
+
+### 4. Delete Task
+
+* Click 🗑️ icon
+* Task is removed from list
+
+---
+
+## 🛠️ Installation
+
+1. Clone the repository:
+
+```
+git clone https://github.com/your-username/todo-app.git
+```
+
+2. Navigate to project folder:
+
+```
+cd todo-app
+```
+
+3. Install dependencies:
+
+```
+npm install
+```
+
+4. Run the app:
+
+```
+npm run dev
+```
+
+---
+
+## 🎯 Future Improvements
+
+* 💾 Save tasks using localStorage
+* 🔍 Filter tasks (All / Completed / Pending)
+* 🌙 Dark mode
+* 🎨 Animations
+
+---
+
+## 📸 Preview
+
+![alt text](image.png)
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this repo and improve the project!
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+---
