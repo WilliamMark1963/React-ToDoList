@@ -1,23 +1,53 @@
-import { Trash2, Circle, CircleCheck} from 'lucide-react';
-import { useState } from 'react';
-export function ToDo({task, onDelete}){
-    const [complete, setComplete] = useState(false)
-    function handleComplete(){
-        setComplete(!complete)
-    }
-    return (
-    <div className=" w-[300px] md:w-[400px] border rounded-2xl flex p-4 justify-between my-3">
-        <div className='flex flex-1'>
-            {
-                complete ? <CircleCheck className="text-green-500 size-7  shrink-0" onClick={handleComplete}/> : <Circle className="text-green-500 size-7 shrink-0" onClick={handleComplete} />
-            }
-             {
-                complete ?  <p className='text-left ml-2 text-lg line-through  break-word whitespace-normal ' >{task}</p> : <p className='text-left ml-2 text-lg break-word whitespace-normal ' >{task}</p>
-            }
-      
-        
-        </div>
-        <Trash2 className="text-red-700 size-7 stroke-[2.5px] shrink-0" onClick={onDelete}/>
+import { Trash2, Circle, CircleCheck, Pencil } from "lucide-react";
+import { useState } from "react";
+
+export function ToDo({ task, onDelete, isCompleted, updateTask, onEdit }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editText, setEditText] = useState(task);
+  return (
+    <div className=" w-[350px] md:w-[420px] border rounded-2xl flex items-start p-4 justify-between my-3 bg-white shadow-sm">
+      <div className="flex flex-1 min-w-0 gap-2">
+        {isCompleted ? (
+          <CircleCheck
+            className="text-green-500 size-7 shrink-0"
+            onClick={updateTask}
+          />
+        ) : (
+          <Circle
+            className="text-green-500 size-7 shrink-0"
+            onClick={updateTask}
+          />
+        )}
+        {isEditing ? (
+          <input
+            value={editText}
+            onChange={(e) => setEditText(e.target.value)}
+            onBlur={() => {
+              setIsEditing(false);
+              onEdit(editText);
+            }}
+            className="ml-2 border-b outline-none"
+            autoFocus
+          />
+        ) : (
+          <p
+            className={`ml-2 text-lg break-words ${isCompleted ? "line-through" : ""} flex-1`}
+            onDoubleClick={() => setIsEditing(true)}
+          >
+            {task}
+          </p>
+        )}
+      </div>
+      <div className="flex items-center gap-3 ml-3">
+        <Pencil
+          className="text-green-700 size-6 cursor-pointer  transition-all duration-500 hover:scale-110"
+          onClick={() => setIsEditing(true)}
+        />
+        <Trash2
+          className="text-red-700 size-6 cursor-pointer transition-all duration-500 hover:scale-110"
+          onClick={onDelete}
+        />
+      </div>
     </div>
-    )
+  );
 }
