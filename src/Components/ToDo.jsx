@@ -5,7 +5,7 @@ export function ToDo({ task, onDelete, isCompleted, updateTask, onEdit }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(task);
   return (
-    <div className=" w-[350px] md:w-[420px] border rounded-2xl flex items-start p-4 justify-between my-3 bg-white shadow-sm">
+    <div className=" w-87.5 md:w-105 border rounded-2xl flex items-start p-4 justify-between my-3 bg-white shadow-sm">
       <div className="flex flex-1 min-w-0 gap-2">
         {isCompleted ? (
           <CircleCheck
@@ -31,7 +31,7 @@ export function ToDo({ task, onDelete, isCompleted, updateTask, onEdit }) {
           />
         ) : (
           <p
-            className={`ml-2 text-lg break-words ${isCompleted ? "line-through" : ""} flex-1`}
+            className={`ml-2 text-lg wrap-break-words ${isCompleted ? "line-through" : ""} flex-1`}
             onDoubleClick={() => setIsEditing(true)}
           >
             {task}

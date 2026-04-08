@@ -65,7 +65,7 @@ function editTask(id, newText){
     <div className="flex flex-col min-h-screen items-center justify-center bg-gray-100 p-4">
       <Header/>
       <div className=" flex">
-      <input type="text" className="mr-4 border-b-2 outline-0 w-full max-w-[300px] sm:w-80" onChange={(e)=>{
+      <input type="text" className="mr-4 border-b-2 outline-0 w-full max-w-75 sm:w-80" onChange={(e)=>{
             setMsg(e.target.value)
       }}  />
       <CirclePlus className="size-7 hover:text-blue-700 transition-all duration-500 hover:scale-110" onClick={addTask}/>
