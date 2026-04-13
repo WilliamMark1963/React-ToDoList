@@ -28,6 +28,19 @@ This app allows users to manage daily tasks with features like adding, editing, 
 
 ---
 
+## 📂 Project Structure
+
+```
+src/
+│
+├── App.jsx                # Main logic and state management
+├── Components/
+│   ├── Header.jsx        # App header
+│   ├── ToDoList.jsx      # Renders list of tasks
+│   └── ToDo.jsx          # Individual task component
+```
+
+---
 
 ## ⚙️ How It Works
 
@@ -94,16 +107,7 @@ npm run dev
 
 ## 📸 Preview
 
-<img width="1916" height="858" alt="image" src="https://github.com/user-attachments/assets/fd6d31c2-e790-423e-a025-ef700407a031" />
-
-
-<img width="1901" height="973" alt="image" src="https://github.com/user-attachments/assets/077366ca-ae81-44e0-a9a9-a8ffd6c94f02" />
-
-<img width="1911" height="963" alt="image" src="https://github.com/user-attachments/assets/5c1323e2-02a5-4698-91c5-7bdce187149e" />
-
-<img width="1918" height="953" alt="image" src="https://github.com/user-attachments/assets/78cc48f5-e617-4728-9c23-41a3b831c2e8" />
-
-
+![alt text](image.png)
 
 ---
 
